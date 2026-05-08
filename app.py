@@ -2,10 +2,14 @@ from datetime import datetime
 
 from flask import Flask, render_template, request, redirect, url_for
 from  flask_sqlalchemy import SQLAlchemy
+import os
+
+# Render上の環境変数 DATABASE_URL があればそれを使い、なければローカルの sqlite を使う
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///todo.db'
 db = SQLAlchemy(app)
 
 class Post(db.Model):
