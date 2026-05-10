@@ -8,12 +8,6 @@ import os
 
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///todo.db'
-
-
-# 環境変数 DATABASE_URL があればそれを使い、なければローカル用の SQLite を使う設定
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///todo.db')
 
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
