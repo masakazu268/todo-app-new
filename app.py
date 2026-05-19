@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
@@ -35,21 +35,6 @@ with app.app_context():
     print("Database tables created successfully!") # ログ確認用
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # # 1. 先にモデル（テーブルの構造）を定義する
 # class Post(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -66,7 +51,7 @@ with app.app_context():
 def index():
     if request.method == 'GET':
         posts = Post.query.order_by(Post.due).all()
-        return render_template('index.html', posts=posts)
+        return render_template('index.html', posts=posts, today=date.today())
     
     else:
         title = request.form.get('title')
