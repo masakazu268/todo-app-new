@@ -8,15 +8,15 @@
        <div class="card-body">
          {% if post.due.date() < today %} 
          <div class="alert alert-warning" role="alert">
-            MESSAGE
+            期限が切れています
           </div>
         {% endif %}
         
         <h2 class="card-title">タイトル: {{ post.title }}</h2>
             <p>期限：{{ post.due.date() }}</p>
-            <a class="btn btn-secondary" href="detail/{{ post.id }}" role="button">Dtail</a>
-            <a class="btn btn-success" href="update/{{ post.id }}" role="button">Update</a>
-            <a class="btn btn-danger" href="delete/{{ post.id }}" role="button">Delete</a>
+            <a class="btn btn-secondary btn-sm" href="detail/{{ post.id }}" role="button">Dtail</a>
+            <a class="btn btn-success btn-sm" href="update/{{ post.id }}" role="button">Update</a>
+            <a class="btn btn-danger btn-sm" href="delete/{{ post.id }}" role="button">Delete</a>
       </div>
   </div>
 
