@@ -3,17 +3,17 @@
 {% block body %}
 
 <form class="m-5"  action="/update/{{ post.id }}" method="POST">
-    <div class="form-group pd-3">
+    <div class="form-group pb-3">
         <label for="title">Title</label>
         <input type="text"  class="form-control" name="title" value="{{post.title}}">
     </div>    
         
-    <div class="form-group pd-3">
+    <div class="form-group pb-3">
         <label for="detail">Dtail</label>
         <input type="text" class="form-control" name="detail" value="{{post.detail}}">
     </div>
      
-    <div class="form-group pd-3">
+    <div class="form-group pb-3">
         <label for="due">Due</label>
         <input type="date" name="due" value="{{post.due.data}}" required>
        
